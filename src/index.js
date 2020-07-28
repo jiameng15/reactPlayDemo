@@ -5,7 +5,8 @@ class Square extends React.Component {
   render() {
     return (
       <button className="square">
-        {/* TODO */}
+        {/* 传递进来的props对象,因为属性的key为value,所以使用props.value可以获得属性的值 */}
+        {this.props.value}
       </button>
     );
   }
@@ -13,7 +14,8 @@ class Square extends React.Component {
 
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square />;
+    // 添加props对象,将值传给Square组件
+    return <Square value={i} />;
   }
 
   render() {
@@ -23,6 +25,7 @@ class Board extends React.Component {
       <div>
         <div className="status">{status}</div>
         <div className="board-row">
+          {/* renderSquare方法可以直接在{}中使用 */}
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
